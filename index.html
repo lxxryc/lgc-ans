@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+<link rel="stylesheet" href="webTEST.css"/>
+<title>Hard Q&A Challenge</title>
+
+</head>
+<body>
+<video autoplay muted loop playsinline class="bg-video"><source src="https://motionbgs.com/media/2978/minecraft-sunset.960x540.mp4" type="video/mp4"></video>
+<div class="bg-overlay"></div>
+
+<div class="container" id="app">
+  <div class="title">HARD Q&A CHALLENGE</div>
+
+  <div class="card">
+    <div id="qtext">Question will appear</div>
+    <div class="opts" id="opts"></div>
+  </div>
+
+  <div class="info">
+    <span id="stageLabel">Stage 1</span> • <span id="scoreLabel">0 / 5</span>
+  </div>
+
+  <button id="nextBtn" class="cta" disabled>Proceed to Next Stage</button>
+
+  <div id="reward" class="hidden">
+    <div class="reward-type">
+      <button id="btnLoad" class="active">Load</button>
+      <button id="btnG">GCash</button>
+    </div>
+    <form id="rewardForm">
+      <div id="loadForm">
+        <input type="tel" placeholder="Mobile number" maxlength="11" required />
+        <select required>
+          <option value="">Select SIM</option><option>Smart</option><option>Globe</option><option>DITO</option><option>TM</option>
+        </select>
+      </div>
+      <div id="gcashForm" style="display:none">
+        <input type="tel" placeholder="GCash number" maxlength="11"/>
+        <input type="text" placeholder="GCash name"/>
+      </div>
+      <button type="button" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
+ <script src="webTEST.js"></script>
+</body>
+</html>

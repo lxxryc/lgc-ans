@@ -1,185 +1,150 @@
-  /* Reset & Base */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  html, body {
-    height: 100%;
-    overflow: hidden;
-    user-select: none;
-  }
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #111;
-    color: #fff;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  color: #fff;
+}
 
-  /* Background Video */
-  .bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-    filter: brightness(0.5);
-  }
-  .bg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: -1;
-  }
+ .card { visibility: hidden; opacity: 0; transition: opacity .25s ease, visibility .25s; }
+body.loaded .card { visibility: visible; opacity: 1; }
 
- /* Container & Card */
-/* Container & Card – clean and balanced */
+ .bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.5);
+}
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
 .container {
   width: min(90%, 420px);
   padding: 1.5rem;
   border-radius: 16px;
   text-align: center;
-
-  /* neutral translucent background */
-  background: rgba(30, 30, 30, 0.55);
+  background: rgba(30,30,30,0.55);
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
 .card {
-  background: rgba(40, 40, 40, 0.5);
+  background: rgba(40,40,40,0.5);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255,255,255,0.06);
   padding: 1rem;
   border-radius: 10px;
   min-height: 100px;
   margin-bottom: 1rem;
 }
-  
 
+ 
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: lime;
+}
+.info {
+  color: #aaa;
+  font-size: .9rem;
+  margin-bottom: .6rem;
+}
+#confirmationMessage {
+  margin-top: .5rem;
+  color: #4CAF50;
+  font-weight: 600;
+}
 
-  /* Typography */
-  .title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: lime;
-  }
-  .info {
-    color: #aaa;
-    font-size: .9rem;
-    margin-bottom: .6rem;
-  }
-  .small {
-    font-size: .85rem;
-    color: #aaa;
-  }
-  #confirmationMessage {
-    margin-top: .5rem;
-    color: #4CAF50;
-    font-weight: 600;
-  }
+ .opts button {
+  width: 100%;
+  padding: .7rem;
+  margin:.4rem 0;
+  border-radius: 6px;
+  border: none;
+  background: #555;
+  color: #fff;
+  cursor: pointer;
+  transition: all .2s;
+}
+.opts button:hover { background: #666; }
+.opts button.correct { background: #4CAF50; color: #fff; }
+.opts button.wrong { background: #F44336; color: #fff; }
 
-  /* Option Buttons */
-  .opts button {
-    width: 100%;
-    padding: .7rem;
-    margin:.4rem 0;
-    border-radius: 6px;
-    border: none;
-    background: #555;
-    color: #fff;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .opts button:hover {
-    background: #666;
-  }
-  .opts button.correct {
-    background: #4CAF50;
-    color: #fff;
-  }
-  .opts button.wrong {
-    background: #F44336;
-    color: #fff;
-  }
+ .cta {
+  width: 100%;
+  padding: .8rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  background: #007bff;
+  cursor: pointer;
+  opacity: .6;
+}
+.cta.enabled { opacity: 1; }
 
-  /* Call-to-action Buttons */
-  .cta {
-    width: 100%;
-    padding: .8rem;
-    border-radius: 8px;
-    border: none;
-    font-weight: 600;
-    color: #fff;
-    background: #007bff;
-    cursor: pointer;
-    opacity: .6;
-  }
-  .cta.enabled {
-    opacity: 1;
-  }
+ .submit-btn {
+  background: #007bff;
+  border: none;
+  padding: .8rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.submit-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
 
-  .submit-btn {
-    background: #007bff;
-    border: none;
-    padding: .8rem;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .submit-btn:disabled {
-    opacity: .5;
-    cursor: not-allowed;
-  }
+ input, select {
+  width: 100%;
+  padding: .68rem;
+  margin: .5rem 0;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: #444;
+  color: #fff;
+}
 
-  /* Form Inputs */
-  input, select {
-    width: 100%;
-    padding: .68rem;
-    margin: .5rem 0;
-    border-radius: 6px;
-    border: 1px solid #666;
-    background: #444;
-    color: #fff;
-  }
+ .reward-type {
+  display: flex;
+  justify-content: center;
+  gap: .7rem;
+  margin-top: .8rem;
+}
+.reward-type button {
+  padding: .4rem .8rem;
+  border-radius: 20px;
+  border: none;
+  background: #555;
+  color: #fff;
+  cursor: pointer;
+}
+.reward-type button.active { background: #007bff; color: #fff; }
 
-  /* Reward Section */
-  .reward-type {
-    display: flex;
-    justify-content: center;
-    gap: .7rem;
-    margin-top: .8rem;
-  }
-  .reward-type button {
-    padding: .4rem .8rem;
-    border-radius: 20px;
-    border: none;
-    background: #555;
-    color: #fff;
-    cursor: pointer;
-  }
-  .reward-type button.active {
-    background: #007bff;
-    color: #fff;
-  }
-
-  /* Layout Helpers */
-  .submit-row {
-    display: flex;
-    gap: 8px;
-  }
-  .hidden {
-    display: none;
-  }
+.hidden { display: none; }

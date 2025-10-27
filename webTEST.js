@@ -177,7 +177,7 @@ window.onload = () => {
       nextBtn.disabled = false;
       nextBtn.classList.add("enabled");
     } else {
-      qEl.textContent = "🎉 Congratulations! Claim your reward below:";
+      qEl.textContent = " Nice! Claim your reward below:";
       optsEl.innerHTML = "";
       rewardEl.classList.remove("hidden");
       nextBtn.style.display = "none";
@@ -245,3 +245,4 @@ window.onload = () => {
 
   render();
 };
+

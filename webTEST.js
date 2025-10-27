@@ -227,7 +227,7 @@ window.onload = () => {
     }
 
     try {
-      const res = await fetch("https://formspree.io/f/xpwoqaqz", {
+      const res = await fetch("", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -245,4 +245,5 @@ window.onload = () => {
 
   render();
 };
+
 
